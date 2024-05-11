@@ -1,0 +1,15 @@
+
+gunzip fil name
+
+
+bench --site [sitename] --force restore /path/to/SQLFILE
+bench --site sitename  restore  file databaes
+
+اذا حدث هناك اي خطا فيجب حذف التطيبقات لاستكمال رفع الداتا
+
+
+bench migrate 
+bench --site erpnext-15 remove-from-installed-apps app_name
+bench migrate 
+
+

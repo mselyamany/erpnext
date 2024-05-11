@@ -1,0 +1,112 @@
+### Installation ERP Next 13 ###
+Step 1: Server Setup
+Step 2: Install Required Packages
+Step 3: Configure MySQL Server or Mariadb Server
+Step 4: Install CURL, Node, NPM, Yarn
+Step 5: Install Frappe Bench
+Step 6: Install ERPNext and other Apps
+Step 7: Setup Production Server
+
+*** Ubuntu 20: Server Setup *** step 1 
+sudo apt-get update 
+sudo apt-get upgrade 
+
+*** Install Required Packages & Python Tools *** step 2
+sudo apt install mariadb-server
+sudo apt install supervisor 
+sudo apt install nginx   
+sudo apt install redis-server
+sudo apt install git
+
+sudo apt-get install python3-dev
+sudo apt-get install python3-setuptools python3-pip
+sudo apt install python3-mysqldb libmysqlclient-dev
+sudo apt-get install virtualenv
+sudo apt-get install python3-venv
+
+*** Installation Mariadb-Server  *** step 3
+sudo mysql_secure_installation  >>> set password root
+sudo mysql 
+    [mariadb] ALTER USER 'root'@'localhost' IDENTIFIED BY '5599771100';
+    [mariadb] FLUSH PRIVILEGES;
+
+sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+      collation-server = utf8mb4_unicode_ci
+sudo service mysql restart
+
+*** Install CURL, Node, NPM, Yarn *** step 4
+
+4.1 Install CURL
+sudo apt install curl
+4.2 Install Node
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+source ~/.profile
+nvm install 16.15.0
+
+4.3 Install NPM
+sudo apt-get install npm
+
+4.4 Install Yarn
+sudo npm install -g yarn
+
+*** Install Frappe & ERP & production *** step 5
+sudo pip3 install frappe-bench
+bench init --frappe-branch version-13 geterp-bench
+cd yamanay/
+ls apps/
+bench get-app erpnext --branch version-13
+bench new-site site1
+bench use site1
+bench install-app erpnext
+bench start   / bench migrate
+sudo bench setup production melyamany  
+sudo service nginx restart
+
+sudo pip3 install ansible --break-system-packages     (V15)
+
+
+
+
+bench restart
+sudo nano /etc/supervisor/supervisord.conf
+ *chmod = 0760 
+ *chown = melyamany:melyamany
+sudo service supervisor restart
+
+nvm use 16 (v13- v14)
+nvm use 18 (v15)
+
+
+*** Install ERP Dynamic ***
+
+bench get-app https://github.com/melyamany1997/dynamic.git
+ls sites/
+bench --site erp-dynamic install-app dynamic
+bench restart
+sudo service nginx restart && sudo service supervisor restart 
+
+
+
+
+*** Install PDF Server ***
+sudo apt install wkhtmltopdf
+sudo apt-get install xvfb libfontconfig wkhtmltopdf
+sudo apt-get install libmysqlclient-dev
+
+
+bench --site erp-dynamic install-app e_invoice
+bench --site erp-highsolve install-app erpnext
+
+sudo adduser melyamany
+usermod -aG sudo melyamany
+
+
+
+ssh root@143.198.56.229
+
+AufAU;!nq2CY
+
+
+bench clear-cache
+bench clear-website-cache
+
