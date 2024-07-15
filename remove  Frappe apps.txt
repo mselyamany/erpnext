@@ -1,0 +1,16 @@
+Perform a dry run to see what would happen on running it on a particular site.
+
+1
+bench --site {site} uninstall-app {app} --dry-run
+Don't take a backup before the application uninstall operation.
+
+2
+bench --site {site} uninstall-app {app} --no-backup
+Use force to uninstall application from site.
+
+3
+bench --site {site} uninstall-app {app} --force
+Skip the interactive prompt for confirmation of uninstall.
+
+4
+bench --site {site} uninstall-app {app} --yes
