@@ -14,3 +14,12 @@ Skip the interactive prompt for confirmation of uninstall.
 
 4
 bench --site {site} uninstall-app {app} --yes
+
+
+
+
+Flags 
+-y, --yes To bypass confirmation prompt for uninstalling the app
+--dry-run List all doctypes that will be deleted
+--no-backup Do not backup the site
+--force Force remove the app from site
