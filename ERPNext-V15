@@ -74,6 +74,9 @@ sudo bench setup production melyamany
 sudo service nginx restart
 
 sudo pip3 install ansible --break-system-packages  
+and
+sudo pip3 install fail2ban --break-system-packages  or sudo apt install fail2ban
+
 
 sudo chmod -R o+rx /home/melyamany
 
