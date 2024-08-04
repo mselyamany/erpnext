@@ -1,0 +1,13 @@
+*Create App
+
+bench new-app app_name
+bench --site site_name install-app app_name
+
+*Create Workspace
+From Home pedg 
+
+
+*Create Doctype
+bench set-config -g developer_mode true
+
+
